@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биофильный Дизайн | Гармония Природы в Доме</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключение шрифта Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- == Встроенный CSS == -->
+    <style>
+        /* Базовый стиль для шрифта */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Стиль для "прилипающей" шапки при прокрутке */
+        .navbar-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+
+        /* Анимация плавного появления */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Градиент для главного экрана */
+        .hero-gradient {
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url('https://placehold.co/1920x1080/5F7161/EFEFEF?text=Красивый+Интерьер+с+Растениями') no-repeat center center;
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- === Шапка (Навигация) === -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+        <div class="container mx-auto max-w-6xl px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Логотип -->
+                <a href="#" class="text-2xl font-bold text-white md:text-gray-900" id="logo">Bio<span class="text-green-400">philic</span></a>
+                
+                <!-- Навигация -->
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-100 md:text-gray-600 hover:text-green-600 transition-colors">О Концепции</a>
+                    <a href="#gallery" class="text-gray-100 md:text-gray-600 hover:text-green-600 transition-colors">Галерея</a>
+                    <a href="#principles" class="text-gray-100 md:text-gray-600 hover:text-green-600 transition-colors">Принципы</a>
+                    <a href="#contact" class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-700 transition-colors">Связаться</a>
+                </nav>
+
+                <!-- Мобильное меню (иконка) -->
+                <div class="md:hidden">
+                    <button class="text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- === Главный экран (Hero) === -->
+        <section class="h-screen min-h-[600px] w-full flex items-center justify-center text-center text-white p-4 hero-gradient">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">Природа внутри</h1>
+                <p class="text-lg md:text-2xl font-light mb-8" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7);">Откройте для себя биофильный дизайн и создайте пространство, полное жизни и гармонии.</p>
+                <a href="#about" class="bg-white text-gray-900 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-200 transition-colors shadow-lg">Узнать больше</a>
+            </div>
+        </section>
+
+        <!-- === Секция "О Концепции" === -->
+        <section id="about" class="py-20 md:py-32 bg-white fade-in-section">
+            <div class="container mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Текстовый блок -->
+                <div>
+                    <span class="text-green-600 font-semibold uppercase tracking-wider">Что это?</span>
+                    <h2 class="text-3xl md:text-4xl font-bold my-4">Что такое биофильный дизайн?</h2>
+                    <p class="text-gray-600 text-lg mb-4 leading-relaxed">
+                        Биофилия — это врожденная связь человека с природой. Биофильный дизайн — это подход в архитектуре и интерьере, который использует эту связь для создания более здоровых и продуктивных пространств.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Он выходит за рамки простого добавления комнатных растений. Это осознанное использование естественного света, природных материалов, форм и видов для улучшения нашего самочувствия.
+                    </p>
+                </div>
+                <!-- Изображение -->
+                <div class="rounded-lg overflow-hidden shadow-2xl">
+                    <img src="https://placehold.co/600x450/A3BCA6/FFFFFF?text=Светлый+офис+с+растениями" alt="Светлый офис с элементами природы" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- === Секция "Галерея" === -->
+        <section id="gallery" class="py-20 md:py-32 bg-gray-50 fade-in-section">
+            <div class="container mx-auto max-w-6xl px-4">
+                <div class="text-center mb-12">
+                    <span class="text-green-600 font-semibold uppercase tracking-wider">Вдохновение</span>
+                    <h2 class="text-3xl md:text-4xl font-bold my-4">Галерея решений</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Посмотрите, как принципы биофилии воплощаются в жизнь в разных пространствах.</p>
+                </div>
+                
+                <!-- Сетка галереи -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Изображение 1 -->
+                    <div class="rounded-lg overflow-hidden shadow-lg group">
+                        <img src="https://placehold.co/600x400/6D8B74/FFFFFF?text=Живая+стена" alt="Живая стена в лобби" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-4 bg-white">
+                            <h3 class="font-semibold text-lg">Вертикальное озеленение</h3>
+                            <p class="text-gray-600 text-sm">"Живые стены" очищают воздух и служат мощным визуальным акцентом.</p>
+                        </div>
+                    </div>
+                    <!-- Изображение 2 -->
+                    <div class="rounded-lg overflow-hidden shadow-lg group">
+                        <img src="https://placehold.co/600x400/D0C9C0/FFFFFF?text=Натуральные+материалы" alt="Интерьер с деревом и камнем" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-4 bg-white">
+                            <h3 class="font-semibold text-lg">Натуральные материалы</h3>
+                            <p class="text-gray-600 text-sm">Использование дерева, камня и натуральных тканей.</p>
+                        </div>
+                    </div>
+                    <!-- Изображение 3 -->
+                    <div class="rounded-lg overflow-hidden shadow-lg group">
+                        <img src="https://placehold.co/600x400/86A397/FFFFFF?text=Естественный+свет" alt="Комната с большими окнами" class="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                        <div class="p-4 bg-white">
+                            <h3 class="font-semibold text-lg">Естественный свет</h3>
+                            <p class="text-gray-600 text-sm">Максимизация дневного света и видов на природу.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Секция "Принципы" === -->
+        <section id="principles" class="py-20 md:py-32 bg-white fade-in-section">
+            <div class="container mx-auto max-w-6xl px-4">
+                <div class="text-center mb-12">
+                    <span class="text-green-600 font-semibold uppercase tracking-wider">Ключевые Элементы</span>
+                    <h2 class="text-3xl md:text-4xl font-bold my-4">Три кита биофилии</h2>
+                </div>
+                
+                <!-- Карточки принципов -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Принцип 1 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg text-center">
+                        <!-- Иконка -->
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Свет и Пространство</h3>
+                        <p class="text-gray-600">Обилие естественного света, динамическое освещение и создание открытых, "дышащих" пространств с хорошими видами.</p>
+                    </div>
+                    
+                    <!-- Принцип 2 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg text-center">
+                        <!-- Иконка -->
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                <path d="M13 3c-4.418 0-8 3.134-8 7 0 2.456 1.255 4.636 3.2 5.965L12 21l3.8-5.035C17.745 14.636 19 12.456 19 10c0-3.866-3.582-7-8-7z" stroke="none" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Прямая Природа</h3>
+                        <p class="text-gray-600">Непосредственный контакт с природными элементами: растения, вода, животные, естественная вентиляция и запахи.</p>
+                    </div>
+
+                    <!-- Принцип 3 -->
+                    <div class="bg-gray-50 p-8 rounded-lg shadow-lg text-center">
+                        <!-- Иконка -->
+                        <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2.086a8.001 8.001 0 00-11.858-8.214m11.858 8.214L12 20.25 4.062 11.086a8.001 8.001 0 0111.858-8.214z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Природные Аналоги</h3>
+                        <p class="text-gray-600">Имитация природы через материалы, текстуры, цвета и формы. Использование дерева, камня, биоморфных узоров.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Подвал (Footer) === -->
+        <footer id="contact" class="bg-gray-900 text-gray-300 py-16">
+            <div class="container mx-auto max-w-6xl px-4 text-center">
+                <a href="#" class="text-3xl font-bold text-white mb-4 inline-block">Bio<span class="text-green-400">philic</span></a>
+                <p class="text-gray-400 mb-8 max-w-lg mx-auto">Создаем пространства, в которых хочется жить, работать и дышать.</p>
+                
+                <!-- Соцсети (здесь можно вставить реальные SVG иконки, если нужно) -->
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <!-- Иконка-заглушка -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6.18 15.64c.36 1.02 1.01 2.05 2 2.83.77.62 1.63 1.11 2.58 1.42.98.31 2.02.42 3.03.28 1-.14 1.95-.53 2.76-1.12.01-.01.01-.02.02-.03s.01-.02.02-.03c.1-.1.19-.2.27-.3.02-.02.03-.04.05-.06.09-.09.18-.19.26-.29.01-.01.02-.02.02-.03.08-.1.15-.2.22-.3.02-.02.03-.04.04-.06.07-.1.14-.2.2-.3.01-.02.02-.03.03-.05.06-.1.12-.2.17-.3.01-.02.02-.03.03-.05.05-.09.1-.19.14-.28.01-.02.02-.03.02-.05.04-.09.08-.19.11-.28.01-.02.02-.03.02-.05.03-.09.06-.19.09-.28.01-.02.01-.03.02-.05.03-.09.05-.19.07-.29.01-.02.01-.03.02-.05.02-.09.04-.19.06-.28.01-.02.01-.03.01-.05.02-.09.04-.19.05-.28.01-.02.01-.03.01-.05.02-.09.03-.19.04-.29.01-.02.01-.03.01-.05.01-.09.03-.19.03-.28.01-.02.01-.03.01-.05.01-.09.02-.19.03-.29.01-.02.01-.03.01-.05.01-.09.02-.19.02-.28 0-.02 0-.03.01-.05.01-.09.02-.19.02-.29 0-.02 0-.03.01-.05s.01-.19.01-.29c0-1.01-.15-2.01-.44-2.96-.3-.95-.75-1.82-1.34-2.58-.6-.76-1.33-1.4-2.18-1.9-.85-.5-1.81-.85-2.82-1.02-1.01-.17-2.04-.15-3.03.05-1 .19-1.95.58-2.79 1.13-.84.55-1.57 1.25-2.15 2.05-.58.8-1.02 1.7-1.3 2.65-.28.95-.4 1.95-.35 2.95.05 1 .28 1.98.66 2.89zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/></svg>
+                    </a>
+                </div>
+                
+                <p class="text-gray-500 text-sm">&copy; 2025 Biophilic Design. Все права защищены.</p>
+            </div>
+        </footer>
+    </main>
+
+    <!-- == Встроенный JavaScript == -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // === Логика для "прилипающей" шапки ===
+            const navbar = document.getElementById('navbar');
+            const logo = document.getElementById('logo');
+            const navLinks = navbar.querySelectorAll('nav a'); // Находим только ссылки в <nav>
+
+            const handleScroll = () => {
+                const isScrolled = window.scrollY > 50;
+                
+                navbar.classList.toggle('navbar-scrolled', isScrolled);
+                logo.classList.toggle('text-white', !isScrolled);
+                logo.classList.toggle('text-gray-900', isScrolled);
+
+                navLinks.forEach(link => {
+                    // Исключаем кнопку "Связаться" из смены цвета
+                    if (!link.classList.contains('bg-green-600')) {
+                        link.classList.toggle('text-gray-100', !isScrolled);
+                        link.classList.toggle('text-gray-600', isScrolled);
+                    }
+                });
+            };
+
+            // === Логика для плавного появления секций ===
+            const sections = document.querySelectorAll('.fade-in-section');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% секции должно быть видно
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Отключаем наблюдение после анимации
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Вызываем handleScroll один раз при загрузке, чтобы проверить начальное состояние
+            handleScroll();
+            // Добавляем слушатель прокрутки
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+</body>
+</html>
+

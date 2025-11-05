@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мектепішілік виртуалды тур</title>
+    <!-- Pannellum CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+        }
+        #panorama {
+            width: 90%;
+            max-width: 1000px;
+            height: 500px;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Мектепішілік виртуалды тур</h1>
+    <div id="panorama"></div>
+
+    <!-- Pannellum JS -->
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <script>
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "school_panorama.jpg",  // <-- здесь имя твоей панорамы
+            "autoLoad": true,
+            "showZoomCtrl": true,
+            "compass": true
+        });
+    </script>
+</body>
+</html>

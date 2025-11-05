@@ -132,12 +132,15 @@
         document.getElementById('panorama-container').style.display = 'flex';
 
         pannellum.viewer('panorama', {
-            "type": "equirectangular",
-            "panorama": filename,
-            "autoLoad": true,
-            "showZoomCtrl": true,
-            "compass": true
-        });
+    "type": "equirectangular",
+    "panorama": "IMG_4079.jpeg",
+    "autoLoad": true,
+    "hfov": 100,           // угол обзора, можно менять (90–120)
+    "pitch": 0,
+    "yaw": 0,
+    "showZoomCtrl": true,
+    "compass": true
+});
     }
 
     function backToLocations() {

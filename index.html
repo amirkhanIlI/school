@@ -11,9 +11,9 @@
             background: #f4f4f9;
             color: #333;
             /* Рамка на всю страницу */
-            border: 8px solid #6a11cb; /* Толстая рамка под основной цвет градиента */
-            box-sizing: border-box; /* Важно, чтобы рамка не увеличивала общий размер */
-            min-height: 100vh; /* Гарантируем, что body занимает всю высоту для рамки */
+            border: 8px solid #6a11cb; 
+            box-sizing: border-box; 
+            min-height: 100vh; 
         }
 
         /* Главная страница */
@@ -40,31 +40,31 @@
 
         /* Стиль кнопок */
         .btn {
-            padding: 15px 30px;
-            font-size: 1.2em;
+            padding: 18px 35px; /* Увеличил padding кнопок */
+            font-size: 1.3em; /* Увеличил шрифт кнопок */
             background-color: #fff;
             color: #2575fc;
-            border: 2px solid #2575fc; /* Рамка на кнопках */
+            border: 2px solid #000; /* ЧЕРНАЯ РАМКА ПО КРАЯМ КНОПОК */
             border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Усилил тень для видимости */
             transition: 0.3s;
-            margin: 5px;
+            margin: 10px; /* Увеличил отступы между кнопками */
         }
 
         .btn:hover {
             background-color: #e0e0ff;
             transform: translateY(-2px);
-            border-color: #6a11cb; /* Цвет рамки при наведении */
+            border-color: #6a11cb; 
         }
 
         /* 1. АНИМАЦИЯ ФОНА ДЛЯ ВЫБОРА ЛОКАЦИЙ (МЕНЮ) */
         @keyframes slide-bg {
             from {
-                background-position: 0% 100%; /* Начинаем снизу слева */
+                background-position: 0% 100%; /* Снизу слева */
             }
             to {
-                background-position: 150% -50%; /* Движение вправо вверх и "чуть правее" */
+                background-position: 150% -50%; /* Вправо вверх и чуть правее */
             }
         }
         
@@ -74,12 +74,12 @@
             align-items: center;
             padding: 50px 20px;
             min-height: 100vh; 
-            background-color: #f0f0f5; /* Основной очень светлый фон */
-            position: relative; /* Важно для позиционирования псевдоэлемента */
-            overflow: hidden; /* Если логотип выходит за границы, скрываем */
+            background-color: #f0f0f5; 
+            position: relative; 
+            overflow: hidden; 
         }
 
-        /* Псевдоэлемент для анимированного фона с логотипом */
+        /* Псевдоэлемент для анимированного фона */
         #locations::before {
             content: "";
             position: absolute;
@@ -89,26 +89,26 @@
             height: 100%;
             background-image: url('MagicEraser_251106_091510.png'); 
             background-repeat: repeat; 
-            background-size: 100px 100px; /* Уменьшаем размер логотипов для большего количества */
-            opacity: 0.1; /* Очень легкая прозрачность, чтобы не "резало глаза" */
-            animation: slide-bg 25s linear infinite; /* Анимация: 25 секунд для плавности */
-            z-index: -1; /* Отправляем фон на задний план, чтобы кнопки были видны */
+            background-size: 100px 100px; 
+            opacity: 0.1; /* Прозрачность фона */
+            animation: slide-bg 40s linear infinite; /* ДВИЖЕНИЕ СДЕЛАЛ МЕДЛЕННЕЕ (40 секунд) */
+            z-index: -1; /* Отправляем фон на задний план */
         }
 
         #locations h2 {
-            font-size: 2em;
+            font-size: 2.5em; /* УВЕЛИЧИЛ размер заголовка */
             margin-bottom: 30px;
-            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон для текста, чтобы он был читабельным */
+            background-color: rgba(255, 255, 255, 0.9); 
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1; /* Гарантируем, что заголовок поверх фона */
+            z-index: 1; 
         }
 
         #locations .place-btn {
-            width: 250px;
+            width: 300px; /* Увеличил ширину кнопок */
             margin: 10px;
-            z-index: 1; /* Гарантируем, что кнопки поверх фона */
+            z-index: 1; 
         }
 
         /* Панорама */

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Мектепішілік виртуалды тур</title>
-    <!-- Pannellum CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <style>
         body {
@@ -96,30 +95,27 @@
 </head>
 <body>
 
-<!-- Главная страница -->
 <div id="home">
     <h1>Мектепішілік виртуалды тур</h1>
     <p>Бұл жоба жаңа оқушыларға мектеп ішінде еркін бағдарлануға мүмкіндік береді.</p>
     <button class="btn" onclick="showLocations()">Көріністерге өту</button>
 </div>
 
-<!-- Выбор локаций -->
 <div id="locations">
     <h2>Мекенжайларды таңдаңыз</h2>
     <button class="btn place-btn" onclick="showPanorama('IMG_4206.jpeg')">Кіреберіс</button>
+    <button class="btn place-btn" onclick="showPanorama('image.png')">Твоя новая панорама</button>
     <button class="btn place-btn" onclick="showPanorama('corridor.jpg')">Дәліз</button>
     <button class="btn place-btn" onclick="showPanorama('IMG_4204.jpeg')">1 қабат сатысы</button>
     <button class="btn place-btn" onclick="showPanorama('IMG_4197.jpeg')">2 қабат сатысы</button>
     <button class="btn place-btn" onclick="showPanorama('IMG_4203.jpeg')">3 қабат сатысы</button>
 </div>
 
-<!-- Панорама -->
 <div id="panorama-container">
     <div id="panorama"></div>
     <button id="backBtn" class="btn" onclick="backToLocations()">Таңдауға оралу</button>
 </div>
 
-<!-- Pannellum JS -->
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <script>
     let viewer; // переменная для хранения активного панорама-вьювера
@@ -130,30 +126,41 @@
         document.getElementById('locations').style.display = 'flex';
     }
 
+    /* * ----- ВОТ ОБНОВЛЕННАЯ ФУНКЦИЯ -----
+     * Я добавил параметры haov, vaov, maxPitch и minPitch,
+     * чтобы убрать растягивание по вертикали.
+     */
     function showPanorama(filename) {
-    document.getElementById('locations').style.display = 'none';
-    document.getElementById('panorama-container').style.display = 'flex';
+        document.getElementById('locations').style.display = 'none';
+        document.getElementById('panorama-container').style.display = 'flex';
 
-    if (viewer) {
-        viewer.destroy();
-    }
+        if (viewer) {
+            viewer.destroy();
+        }
 
-    viewer = pannellum.viewer('panorama', {
-        "type": "equirectangular",
-        "panorama": filename,
-        "autoLoad": true,
-        "hfov": hfovValue,
-        "pitch": 0,
-        "yaw": 0,
-        "showZoomCtrl": true,
-        "compass": true,
-        "backgroundColor": [0, 0, 0], // ← чёрный фон вместо растягивания
-        "autoRotate": 0,
-        "autoRotateInactivityDelay": -1,
-        "maxPitch": 55,  // ограничим взгляд вверх
-        "minPitch": -55 // и вниз, чтобы не видеть пустоты
-    });
-}
+        viewer = pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": filename,
+            "autoLoad": true,
+            "hfov": hfovValue,
+            "pitch": 0,
+            "yaw": 0,
+            "showZoomCtrl": true,
+            "compass": true,
+            "backgroundColor": [0, 0, 0], // чёрный фон
+            "autoRotate": 0,
+            "autoRotateInactivityDelay": -1,
+
+            // 1. Горизонтальный охват фото (360)
+            "haov": 360,
+
+            // 2. Вертикальный охват (подбери это значение: 90, 100, 110...)
+            "vaov": 100,
+
+            // 3. Ограничиваем взгляд вверх/вниз (чуть меньше, чем vaov/2)
+            "maxPitch": 45,  
+            "minPitch": -45 
+        });
     }
 
     function backToLocations() {

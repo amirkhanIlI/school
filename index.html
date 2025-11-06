@@ -104,7 +104,6 @@
 <div id="locations">
     <h2>Мекенжайларды таңдаңыз</h2>
     <button class="btn place-btn" onclick="showPanorama('IMG_4206.jpeg')">Кіреберіс</button>
-    <button class="btn place-btn" onclick="showPanorama('image.png')">Твоя новая панорама</button>
     <button class="btn place-btn" onclick="showPanorama('corridor.jpg')">Дәліз</button>
     <button class="btn place-btn" onclick="showPanorama('IMG_4204.jpeg')">1 қабат сатысы</button>
     <button class="btn place-btn" onclick="showPanorama('IMG_4197.jpeg')">2 қабат сатысы</button>
@@ -126,8 +125,8 @@
         document.getElementById('locations').style.display = 'flex';
     }
 
-    /* * ----- ВОТ ОБНОВЛЕННАЯ ФУНКЦИЯ -----
-     * Я добавил параметры haov, vaov, maxPitch и minPitch,
+    /* * ----- ОБНОВЛЕННАЯ ФУНКЦИЯ -----
+     * C параметрами haov, vaov, maxPitch и minPitch,
      * чтобы убрать растягивание по вертикали.
      */
     function showPanorama(filename) {

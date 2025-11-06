@@ -10,6 +10,10 @@
             font-family: 'Arial', sans-serif;
             background: #f4f4f9;
             color: #333;
+            /* Рамка на всю страницу */
+            border: 8px solid #6a11cb; /* Толстая рамка под основной цвет градиента */
+            box-sizing: border-box; /* Важно, чтобы рамка не увеличивала общий размер */
+            min-height: 100vh; /* Гарантируем, что body занимает всю высоту для рамки */
         }
 
         /* Главная страница */
@@ -34,12 +38,13 @@
             margin-bottom: 40px;
         }
 
+        /* Стиль кнопок */
         .btn {
             padding: 15px 30px;
             font-size: 1.2em;
             background-color: #fff;
             color: #2575fc;
-            border: none;
+            border: 2px solid #2575fc; /* Рамка на кнопках */
             border-radius: 8px;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -50,15 +55,16 @@
         .btn:hover {
             background-color: #e0e0ff;
             transform: translateY(-2px);
+            border-color: #6a11cb; /* Цвет рамки при наведении */
         }
 
         /* 1. АНИМАЦИЯ ФОНА ДЛЯ ВЫБОРА ЛОКАЦИЙ (МЕНЮ) */
-        @keyframes slide {
+        @keyframes slide-bg {
             from {
                 background-position: 0% 100%; /* Начинаем снизу слева */
             }
             to {
-                background-position: 100% 0%; /* Заканчиваем вверху справа */
+                background-position: 150% -50%; /* Движение вправо вверх и "чуть правее" */
             }
         }
         
@@ -68,27 +74,41 @@
             align-items: center;
             padding: 50px 20px;
             min-height: 100vh; 
+            background-color: #f0f0f5; /* Основной очень светлый фон */
+            position: relative; /* Важно для позиционирования псевдоэлемента */
+            overflow: hidden; /* Если логотип выходит за границы, скрываем */
+        }
+
+        /* Псевдоэлемент для анимированного фона с логотипом */
+        #locations::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('MagicEraser_251106_091510.png'); 
-            background-color: #f0f0f5; 
             background-repeat: repeat; 
-            background-size: 150px 150px; /* УМЕНЬШАЕМ РАЗМЕР ЛОГОТИПОВ (больше штук) */
-            opacity: 0.15; /* ДЕЛАЕМ ЛОГОТИПЫ ПОЛУПРОЗРАЧНЫМИ - ЭФФЕКТ "КРАЯ" */
-            animation: slide 30s linear infinite; /* УВЕЛИЧИВАЕМ ВРЕМЯ - БОЛЕЕ ПЛАВНОЕ, НО ЗАМЕТНОЕ ДВИЖЕНИЕ */
+            background-size: 100px 100px; /* Уменьшаем размер логотипов для большего количества */
+            opacity: 0.1; /* Очень легкая прозрачность, чтобы не "резало глаза" */
+            animation: slide-bg 25s linear infinite; /* Анимация: 25 секунд для плавности */
+            z-index: -1; /* Отправляем фон на задний план, чтобы кнопки были видны */
         }
 
         #locations h2 {
             font-size: 2em;
             margin-bottom: 30px;
-            /* Чтобы текст был виден на фоне, делаем его контейнер более плотным */
-            background-color: rgba(255, 255, 255, 0.9); 
+            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон для текста, чтобы он был читабельным */
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Гарантируем, что заголовок поверх фона */
         }
 
         #locations .place-btn {
             width: 250px;
             margin: 10px;
+            z-index: 1; /* Гарантируем, что кнопки поверх фона */
         }
 
         /* Панорама */

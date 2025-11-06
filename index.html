@@ -40,16 +40,17 @@
 
         /* Стиль кнопок */
         .btn {
-            padding: 18px 35px; /* Увеличил padding кнопок */
-            font-size: 1.3em; /* Увеличил шрифт кнопок */
+            padding: 20px 40px; /* Сделал кнопки больше */
+            font-size: 1.5em; /* Сделал шрифт больше */
             background-color: #fff;
             color: #2575fc;
-            border: 2px solid #000; /* ЧЕРНАЯ РАМКА ПО КРАЯМ КНОПОК */
+            border: 2px solid #000; /* ЧЕРНАЯ РАМКА */
             border-radius: 8px;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Усилил тень для видимости */
             transition: 0.3s;
-            margin: 10px; /* Увеличил отступы между кнопками */
+            margin: 10px;
+            font-weight: bold; 
         }
 
         .btn:hover {
@@ -58,30 +59,30 @@
             border-color: #6a11cb; 
         }
 
-        /* 1. АНИМАЦИЯ ФОНА ДЛЯ ВЫБОРА ЛОКАЦИЙ (МЕНЮ) */
+        /* 1. АНИМАЦИЯ И ФОН */
         @keyframes slide-bg {
             from {
-                background-position: 0% 100%; /* Снизу слева */
+                background-position: 0% 100%; 
             }
             to {
-                background-position: 150% -50%; /* Вправо вверх и чуть правее */
+                background-position: 150% -50%; 
             }
         }
-        
+
+        /* Контейнер для страницы выбора локаций */
         #locations {
             display: none;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px;
             min-height: 100vh; 
             background-color: #f0f0f5; 
             position: relative; 
             overflow: hidden; 
+            padding: 0;
         }
 
-        /* Псевдоэлемент для анимированного фона */
-        #locations::before {
-            content: "";
+        /* Анимированный блок, который находится под контентом */
+        #animated-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -90,25 +91,35 @@
             background-image: url('MagicEraser_251106_091510.png'); 
             background-repeat: repeat; 
             background-size: 100px 100px; 
-            opacity: 0.1; /* Прозрачность фона */
-            animation: slide-bg 40s linear infinite; /* ДВИЖЕНИЕ СДЕЛАЛ МЕДЛЕННЕЕ (40 секунд) */
-            z-index: -1; /* Отправляем фон на задний план */
+            opacity: 0.1; 
+            animation: slide-bg 40s linear infinite; /* Медленное движение (40с) */
+        }
+        
+        /* Контейнер для контента, чтобы его центрировать поверх фона */
+        #locations-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            position: relative; 
+            z-index: 2; /* Гарантированно поверх фона */
+            padding: 50px 20px;
         }
 
         #locations h2 {
-            font-size: 2.5em; /* УВЕЛИЧИЛ размер заголовка */
+            font-size: 3em; /* Сделал заголовок очень большим */
             margin-bottom: 30px;
-            background-color: rgba(255, 255, 255, 0.9); 
-            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.95); /* Почти непрозрачный фон для заголовка */
+            padding: 10px 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         #locations .place-btn {
-            width: 300px; /* Увеличил ширину кнопок */
-            margin: 10px;
-            z-index: 1; 
+            width: 350px; /* Сделал кнопки очень широкими */
+            max-width: 90%;
         }
 
         /* Панорама */
@@ -126,11 +137,6 @@
             height: 500px;
             border: 2px solid #333;
             margin-bottom: 20px;
-        }
-
-        #backBtn {
-            padding: 10px 20px;
-            font-size: 1em;
         }
         
         /* Стили для описания под панорамой */
@@ -158,12 +164,16 @@
 </div>
 
 <div id="locations">
-    <h2>Мекенжайларды таңдаңыз</h2>
-    <button class="btn place-btn" onclick="showPanorama('IMG_4206.jpeg')">Кіреберіс</button>
-    <button class="btn place-btn" onclick="showPanorama('corridor.jpg')">Дәліз</button>
-    <button class="btn place-btn" onclick="showPanorama('IMG_4204.jpeg')">1 қабат сатысы</button>
-    <button class="btn place-btn" onclick="showPanorama('IMG_4197.jpeg')">2 қабат сатысы</button>
-    <button class="btn place-btn" onclick="showPanorama('IMG_4203.jpeg')">3 қабат сатысы</button>
+    <div id="animated-background"></div> 
+    
+    <div id="locations-content">
+        <h2>Мекенжайларды таңдаңыз</h2>
+        <button class="btn place-btn" onclick="showPanorama('IMG_4206.jpeg')">Кіреберіс</button>
+        <button class="btn place-btn" onclick="showPanorama('corridor.jpg')">Дәліз</button>
+        <button class="btn place-btn" onclick="showPanorama('IMG_4204.jpeg')">1 қабат сатысы</button>
+        <button class="btn place-btn" onclick="showPanorama('IMG_4197.jpeg')">2 қабат сатысы</button>
+        <button class="btn place-btn" onclick="showPanorama('IMG_4203.jpeg')">3 қабат сатысы</button>
+    </div>
 </div>
 
 <div id="panorama-container">

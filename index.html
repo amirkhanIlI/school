@@ -122,6 +122,9 @@
 <!-- Pannellum JS -->
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <script>
+    let viewer; // переменная для хранения активного панорама-вьювера
+    let hfovValue = 50; // угол обзора по умолчанию (можешь менять)
+
     function showLocations() {
         document.getElementById('home').style.display = 'none';
         document.getElementById('locations').style.display = 'flex';
@@ -131,16 +134,22 @@
         document.getElementById('locations').style.display = 'none';
         document.getElementById('panorama-container').style.display = 'flex';
 
-        pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "IMG_4079.jpeg",
-    "autoLoad": true,
-    "hfov": 90,           // угол обзора, можно менять (90–120)
-    "pitch": 0,
-    "yaw": 0,
-    "showZoomCtrl": true,
-    "compass": true
-});
+        // Если уже был создан viewer — удалить перед созданием нового
+        if (viewer) {
+            viewer.destroy();
+        }
+
+        // Создание панорамы
+        viewer = pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": filename, // теперь подставляется выбранный файл
+            "autoLoad": true,
+            "hfov": hfovValue,    // этот параметр общий для всех
+            "pitch": 0,
+            "yaw": 0,
+            "showZoomCtrl": true,
+            "compass": true
+        });
     }
 
     function backToLocations() {
